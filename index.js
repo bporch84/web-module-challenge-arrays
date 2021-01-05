@@ -45,11 +45,11 @@ Use the copy function below to do the following:
     2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
+function copy(array){
+    return array.slice()
 }    
 
-
+copy(originalFlavors)
 
 
 
@@ -64,9 +64,15 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(array){
+   if (array.length === 31){
+       return true
+   } else {
+       return false
+   }
 }
+
+is31Flavors(originalFlavors)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -81,8 +87,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(array, flavor){
+   array.unshift(flavor);
+   return array;
 }
 
 
@@ -97,8 +104,9 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(array){
+   array.pop();
+   return array;
 }
 
 
@@ -114,8 +122,8 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(array, index){
+    return array[index]
 }
 
 
@@ -134,16 +142,20 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(array, string){
+    for (var i = 0; i < array.length; i++){
+        if (array[i] === string) {
+            array.splice(i, 1); 
+        }
+    }
+    return array
 }
 
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
-Your task is to write a function that checks every item in the array for a string and returns a new array called filteredArray with only the values 
-that contain the received string. This would allow you to be able to filter for "Vanilla", "Sherbet", "Lemon" etc. when different holidays roll around 
+Your task is to write a function that checks every item in the array for a string and returns a new array called filteredArray with only the values that contain the received string. This would allow you to be able to filter for "Vanilla", "Sherbet", "Lemon" etc. when different holidays roll around 
 by passing in those specific strings.
 
 Use the filterByWord function below to do the following:
@@ -160,8 +172,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(array, string){
+    const newArray = []
+    for(let i = 0; i < array.length; i++){
+    if(array[i].includes(string)){
+        newArray.push(array[i]);
+    }
+}
+return newArray
 }
 
 
@@ -195,9 +213,28 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
+function getRandomFlavors(array1, array2, array3, array4){
+    const randomFlavors = []
+    let random = Math.floor(Math.random() * 4);
+    let IndexOne = Math.floor(Math.random() * array1.length)
+    let IndexTwo = Math.floor(Math.random() * array2.length)
+    let IndexThree = Math.floor(Math.random() * array3.length)
+    let IndexFour = Math.floor(Math.random() * array4.length)
+    for (let i = 0; i < 31; i++){
+      if(random === 0){
+        randomFlavors.push(array1[IndexOne])
+      }else if(random === 1){
+        randomFlavors.push(array2[IndexTwo])
+      }else if(random === 2){
+        randomFlavors.push(array3[IndexThree])
+      }else if(random === 3){
+        randomFlavors.push(array4[IndexFour])
+      }
+    }
+    return randomFlavors
+  }
+
+//   console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors))
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
