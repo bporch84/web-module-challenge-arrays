@@ -213,9 +213,28 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
+function getRandomFlavors(array1, array2, array3, array4){
+    const randomFlavors = []
+    let random = Math.floor(Math.random() * 4);
+    let IndexOne = Math.floor(Math.random() * array1.length)
+    let IndexTwo = Math.floor(Math.random() * array2.length)
+    let IndexThree = Math.floor(Math.random() * array3.length)
+    let IndexFour = Math.floor(Math.random() * array4.length)
+    for (let i = 0; i < 31; i++){
+      if(random === 0){
+        randomFlavors.push(array1[IndexOne])
+      }else if(random === 1){
+        randomFlavors.push(array2[IndexTwo])
+      }else if(random === 2){
+        randomFlavors.push(array3[IndexThree])
+      }else if(random === 3){
+        randomFlavors.push(array4[IndexFour])
+      }
+    }
+    return randomFlavors
+  }
+
+//   console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors))
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
